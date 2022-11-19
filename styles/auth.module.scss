@@ -1,0 +1,48 @@
+@import "./constant.module.scss";
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $orange-50;
+
+    .card {
+        padding: 1.5rem;
+
+        .title {
+            font-family: var(--font-montserrat);
+            font-weight: 600;
+            font-size: 1.5rem;
+
+            svg {
+                height: 4rem;
+                width: 2rem;
+                margin-right: 0.5rem;
+            }
+
+            span {
+                color: $red-500;
+            }
+        }
+
+        .subtitle {
+            font-size: 0.875rem;
+            font-weight: 100;
+            color: $orange-700;
+            margin-bottom: 2.5rem;
+        }
+
+        .provider {
+            padding: 0.75rem 1rem;
+            min-width: 13.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid $red-100;
+            border-radius: 1rem;
+        }
+    }
+}
