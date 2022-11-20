@@ -1,20 +1,13 @@
 import type { NextPage, GetServerSideProps } from "next";
-import { signIn, signOut, getSession } from "next-auth/react";
+import { getSession } from "next-auth/react";
+
+import Header from "../components/header/header";
 import styles from "../styles/Home.module.scss";
 
 const Home: NextPage = ({ session }: any) => {
-    if (session) {
-        return (
-            <>
-                Signed in as {session.user?.email} <br />
-                <button onClick={() => signOut()}>Sign out</button>
-            </>
-        );
-    }
     return (
         <>
-            Not signed in <br />
-            <button onClick={() => signIn()}>Sign in</button>
+            <Header user={session?.user} />
         </>
     );
 };
