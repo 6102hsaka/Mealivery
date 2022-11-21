@@ -1,0 +1,43 @@
+@import "./constant.module.scss";
+
+.container {
+    background: linear-gradient($orange-100, $white);
+
+    .message {
+        margin: 2rem 1rem;
+        display: flex;
+        align-items: center;
+
+        div {
+            flex: 6;
+            font-size: calc(1rem + 2.5vw);
+            font-weight: 700;
+            max-width: 50vw;
+
+            span {
+                color: $red-500;
+            }
+        }
+
+        svg {
+            flex: 4;
+            max-height: 12.5rem;
+        }
+    }
+
+    .services {
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+
+        h3 {
+            margin-bottom: 1rem;
+            font-family: var(--font-montserrat);
+            font-weight: 600;
+        }
+
+        svg {
+            height: 10rem;
+            width: 100%;
+        }
+    }
+}
