@@ -1,0 +1,40 @@
+@import "../../styles/constant.module.scss";
+
+.container {
+    padding: 2rem 1rem;
+    background-color: $orange-300;
+
+    .header {
+        margin-bottom: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h3 {
+            font-family: var(--font-montserrat);
+            font-weight: 600;
+        }
+
+        .headerAction {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+    }
+
+    .main {
+        padding-right: 0.5rem;
+        padding-bottom: 0.5rem;
+        display: flex;
+        gap: 1rem;
+        white-space: nowrap;
+        overflow-y: hidden;
+        overflow-x: scroll;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}

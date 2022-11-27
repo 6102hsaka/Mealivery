@@ -3,7 +3,10 @@ import type { Session } from "next-auth";
 import { getSession } from "next-auth/react";
 import { motion } from "framer-motion";
 
+import type Restaurant from "../model/restaurant";
+import { getFeaturedRestaurant } from "../firebase/db-utils";
 import Header from "../components/header/header";
+import FeaturedRestaurant from "../components/featured-restaurant/featured-restaurant";
 import styles from "../styles/Home.module.scss";
 import Breakfast from "/public/images/breakfast.svg";
 import EasytoOrder from "/public/images/easy_to_order.svg";
@@ -12,9 +15,10 @@ import BestQuality from "/public/images/best_quality.svg";
 
 interface Props {
     session: Session;
+    restaurants: Restaurant[];
 }
 
-const Home: NextPage<Props> = ({ session }) => {
+const Home: NextPage<Props> = ({ session, restaurants }) => {
     return (
         <div className={styles.container}>
             <Header user={session?.user} />
@@ -48,15 +52,17 @@ const Home: NextPage<Props> = ({ session }) => {
                         </div>
                     </div>
                 </section>
+                <FeaturedRestaurant restaurants={restaurants} />
             </main>
         </div>
     );
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+    const restaurants: Restaurant[] = await getFeaturedRestaurant();
     const session = await getSession(context);
     return {
-        props: { session },
+        props: { session, restaurants },
     };
 };
 
